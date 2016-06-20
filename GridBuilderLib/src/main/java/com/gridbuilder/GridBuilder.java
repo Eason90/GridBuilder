@@ -4,10 +4,10 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.v7.widget.GridLayout;
 import android.view.LayoutInflater;
 import android.view.SoundEffectConstants;
 import android.view.View;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 
 import com.gridbuilder.calculator.PositionCalculator;
