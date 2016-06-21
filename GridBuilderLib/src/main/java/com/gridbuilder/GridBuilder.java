@@ -447,7 +447,12 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
         }
 
         if (hasFocus) {
-            v.bringToFront();
+
+            if (mScaleWidthSize > mMargin || mScaleHeightSize > mMargin
+                    || (mScaleMultiple > 1 && (gridItem.getWidth() * (mScaleMultiple - 1) > mMargin)
+                    || (gridItem.getHeight() * (mScaleMultiple - 1) > mMargin))) {
+                v.bringToFront();
+            }
             mGridLayout.invalidate();
             enlargeItem(v, gridItem);
             refreshReflection(mBaseHeight);
