@@ -1,5 +1,4 @@
 # GridBuilder
-======
 
 GridBuilder是将Android原生容器GridLayout进行封装，只需在指定GridLayout在布局中的位置，即可通过GridBuilder生成动态栅格布局。
 ![](screenshots/GridBuilder.png)
@@ -7,25 +6,31 @@ GridBuilder是将Android原生容器GridLayout进行封装，只需在指定Grid
 
 ##Module：
 
-    **GridBuilderLib**：GridBuilder Library
-    **GridBuilderDemo**：应用Demo
+ **GridBuilderLib**：GridBuilder Library
+ 
+ **GridBuilderDemo**：应用Demo
 
 ##Lib结构：
 
-    **/calculator**：动态布局计算器
-    **/listener**：监听器
-    **/utils**：工具类(目前只有倒影生成工具)
-    **GridBuilder**：Lib统一入口,核心类
-    **GridItem**：数据对象必须继承该抽象类,以规定行列信息
-    **IGridItemView**：GridLayout中的Child View必须实现其接口
+  **/calculator**：动态布局计算器
+  
+  **/listener** ：监听器
+  
+  **/utils**：工具类(目前只有倒影生成工具)
+  
+  **GridBuilder**：Lib统一入口,核心类
+  
+  **GridItem**：数据对象必须继承该抽象类,以规定行列信息
+  
+  **IGridItemView**：GridLayout中的Child View必须实现其接口
 
 ##特点：
 
-    1.全面支持Android非触屏端(盒子、TV)，支持焦点放大动效
-    2.支持自定义布局算法(默认自带横向布局Calculator)
-    3.支持横纵向延伸(需在GridLayout外套ScrollView/HorizontalScrollView)
-    4.支持动态倒影
-
+ 1. 全面支持Android非触屏端(盒子、TV)，支持焦点放大动效
+ 2. 支持自定义布局算法(默认自带横向布局Calculator)
+ 3. 支持横纵向延伸(需在GridLayout外套ScrollView/HorizontalScrollView)
+ 4. 支持动态倒影
+    
 ##使用方法：
 
 1.在layout.xml中放置GridLayout
@@ -117,9 +122,9 @@ GridBuilder是将Android原生容器GridLayout进行封装，只需在指定Grid
 
 ##待完善：
 
-    1.动态焦点样式
-    2.资源回收/childView复用
-    3.更友好的adapter模式
+1. 动态焦点样式
+2. 资源回收/childView复用
+3. 更友好的adapter模式
 
 ##支持：
 	任何问题可以在项目中提交bug报告，也可以发送邮件以寻求帮助。
