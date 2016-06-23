@@ -127,5 +127,6 @@ GridBuilder是将Android原生容器GridLayout进行封装，只需在指定Grid
 3. 更友好的adapter模式
 
 ##支持：
-	任何问题可以在项目中提交bug报告，也可以发送邮件以寻求帮助。
-	Email: easonx1990@gmail.com
+任何问题可以在项目中[提交bug报告](https://github.com/Eason90/GridBuilder/issues)，也可以发送邮件以寻求帮助。
+
+Email: easonx1990@gmail.com

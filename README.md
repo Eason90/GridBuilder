@@ -1,6 +1,7 @@
 # GridBuilder
 
 GridBuilder is a view builder of Android native view group ——"GridLayout", simply placed GridLayout in the layout，GridBuilder will create the child views by calculator.
+
 [中文文档](README_CN.md "中文文档")
 ![](screenshots/GridBuilder.png)
 ------
@@ -128,5 +129,6 @@ GridBuilder is a view builder of Android native view group ——"GridLayout", s
 3. Friendly adapter design pattern
 
 ##Support：
-	Please feel free to [report bugs](https://github.com/Eason90/GridBuilder/issues) or ask for help via email.
-	Email: easonx1990@gmail.com
+Please feel free to [report bugs](https://github.com/Eason90/GridBuilder/issues) or ask for help via email.
+
+Email: easonx1990@gmail.com
