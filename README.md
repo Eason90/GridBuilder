@@ -1,39 +1,40 @@
 # GridBuilder
 
-GridBuilder是将Android原生容器GridLayout进行封装，只需在指定GridLayout在布局中的位置，即可通过GridBuilder生成动态栅格布局。
+GridBuilder is a view builder of Android native view group ——"GridLayout", simply placed GridLayout in the layout，GridBuilder will create the child views by calculator.
+[中文文档](README_CN.md "中文文档")
 ![](screenshots/GridBuilder.png)
 ------
 
-##Module：
+##Module:
 
- **GridBuilderLib**：GridBuilder Library
+ **GridBuilderLib**: GridBuilder Library
  
- **GridBuilderDemo**：应用Demo
+ **GridBuilderDemo**: Application Demo
 
-##Lib结构：
+##Library Structure:
 
-  **/calculator**：动态布局计算器
+  **/calculator**: The calculator of layout
   
-  **/listener** ：监听器
+  **/listener**: Listener of GridLayout
   
-  **/utils**：工具类(目前只有倒影生成工具)
+  **/utils**: Utils class(currently only in order to generate reflection)
   
-  **GridBuilder**：Lib统一入口,核心类
+  **GridBuilder**: Library entrance, core class
   
-  **GridItem**：数据对象必须继承该抽象类,以规定行列信息
+  **GridItem**: Data objects should extends this abstract class to set the column and rows data
   
-  **IGridItemView**：GridLayout中的Child View必须实现其接口
+  **IGridItemView**: The child view of GridLayout should implement this interface
 
-##特点：
+##Feature:
 
- 1. 全面支持Android非触屏端(盒子、TV)，支持焦点放大动效
- 2. 支持自定义布局算法(默认自带横向布局Calculator)
- 3. 支持横纵向延伸(需在GridLayout外套ScrollView/HorizontalScrollView)
- 4. 支持动态倒影
+ 1. Support Android non-touch devices(Box, TV), support child view focused animation
+ 2. Support custom child view position calculator(provided horizontal layout calculator)
+ 3. Support vertical and horizontal stretch(need to nested ScrollView or HorizontalScrollView out of GridLayout)
+ 4. Support for dynamic reflection
     
-##使用方法：
+##Instructions:
 
-1.在layout.xml中放置GridLayout
+1.Placed the GridLayout in layout.xml
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -45,7 +46,7 @@ GridBuilder是将Android原生容器GridLayout进行封装，只需在指定Grid
                 android:layout_height="wrap_content" />
     </RelativeLayout>
 
-2.自定义View实现IGridItemView接口
+2.Custom View should implement IGridItemView
 
     public class TestGridItemView extends View implements IGridItemView {
 
@@ -74,15 +75,15 @@ GridBuilder是将Android原生容器GridLayout进行封装，只需在指定Grid
         }
     }
 
-3.自定义数据对象，继承GridItem：
+3.Defined the data object and extends GridItem:
 
     public TestItem extends GridItem {
 
-        // 可添加其他字段以创建自定义View
+        // can add any variable
 
     }
 
-4.定义或获取GridItem数据List，GridItem可包含行列跨度信息：
+4.Get the data list of GridItem, GridItem can included the column and row data:
 
     List<GridItem> gridItemList = new ArrayList<>();
     TestItem item = new TestItem();
@@ -91,28 +92,28 @@ GridBuilder是将Android原生容器GridLayout进行封装，只需在指定Grid
     gridItemList.add(item);
 
 
-5.使用GridBuilder创建动态布局
+5.Create layout by GridBuilder:
 
     GridBuilder.newInstance(this, mGridLayout)
-            // 设置item获取焦点时的放大大小
+            // set the scale size of item while item focused
             .setScaleSize(10, 10)
-            // 设置item获取焦点时放大的动画delay
+            // set the item scale animation duration
             .setScaleAnimationDuration(200)
-            // 设置计算器
+            // set the layout position calculator
             .setPositionCalculator(new HorizontalPositionCalculator(5))
-            // 设置默认item长宽
+            // set the default width and height of an item
             .setBaseSize(100, 100)
-            // 设置item之间距离
+            // set the margin between two items
             .setMargin(10)
-            // 设置整个栅格布局外边距
+            // set the out margin of GridLayout
             .setOutMargin(50, 50, 50, 50)
-            // 设置数据
+            // set the data
             .setGridItemList(gridItemList)
-            // 创建Child View
+            // implement the interface to create child view
             .setOnCreateViewCallBack(new OnViewCreateCallBack() {
                 @Override
                 public View onViewCreate(LayoutInflater inflater, GridItem gridItem) {
-                    TestGridItemView view // TODO 创建自定义的Child View
+                    TestGridItemView view // TODO create custom view
                     view.setGridItem(gridItem);
                     return view;
                 }
@@ -120,12 +121,12 @@ GridBuilder是将Android原生容器GridLayout进行封装，只需在指定Grid
             .build();
 
 
-##待完善：
+##To be improved:
 
-1. 动态焦点样式
-2. 资源回收/childView复用
-3. 更友好的adapter模式
+1. Dynamic focus style
+2. Recycling / child view reuse
+3. Friendly adapter design pattern
 
-##支持：
-	任何问题可以在项目中提交bug报告，也可以发送邮件以寻求帮助。
+##Support：
+	Please feel free to [report bugs](https://github.com/Eason90/GridBuilder/issues) or ask for help via email.
 	Email: easonx1990@gmail.com
