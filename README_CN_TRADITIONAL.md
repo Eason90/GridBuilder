@@ -1,7 +1,10 @@
 # GridBuilder
 
 GridBuilder是將Android原生容器GridLayout進行封裝，只需在指定GridLayout在布局中的位置，即可通過GridBuilder生成動態柵格布局。
-![](screenshots/GridBuilder.png)
+![](screenshots/GridBuilder_1.png)
+無數據DEMO截圖
+![](screenshots/GridBuilder_2.jpg)
+商用截圖
 ------
 
 ##Module：

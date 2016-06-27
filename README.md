@@ -5,7 +5,10 @@ GridBuilder is a view builder of Android native view group ——"GridLayout", s
 [简体中文](README_CN_SIMPLIFIED.md "简体中文")
 
 [繁体中文](README_CN_TRADITIONAL.md "繁体中文")
-![](screenshots/GridBuilder.png)
+![](screenshots/GridBuilder_1.png)
+No data DEMO screenshot
+![](screenshots/GridBuilder_2.jpg)
+Online app screenshot
 ------
 
 ##Module:
