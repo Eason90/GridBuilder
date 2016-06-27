@@ -9,7 +9,6 @@ GridBuilder is a view builder of Android native view group ——"GridLayout", s
 No data DEMO screenshot
 ![](screenshots/GridBuilder_2.jpg)
 Online app screenshot
-------
 
 ##Module:
 

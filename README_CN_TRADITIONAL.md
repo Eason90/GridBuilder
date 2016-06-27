@@ -5,7 +5,6 @@ GridBuilder是將Android原生容器GridLayout進行封裝，只需在指定Grid
 無數據DEMO截圖
 ![](screenshots/GridBuilder_2.jpg)
 商用截圖
-------
 
 ##Module：
 
