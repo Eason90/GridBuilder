@@ -58,9 +58,14 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
     private int mBaseHeight = 200;
 
     /**
-     * 基本边距
+     * 基本垂直边距
      */
-    private int mMargin = 5;
+    private int mVerticalMargin = 5;
+
+    /**
+     * 基本水平边距
+     */
+    private int mHorizontalMargin = 5;
 
     /**
      * 上边距
@@ -167,7 +172,20 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
      * @param margin 边距大小
      */
     public GridBuilder setMargin(int margin) {
-        this.mMargin = margin;
+        this.mVerticalMargin = margin;
+        this.mHorizontalMargin = margin;
+        return this;
+    }
+
+    /**
+     * 设置边距
+     *
+     * @param verticalMargin   垂直边距大小
+     * @param horizontalMargin 水平边距大小
+     */
+    public GridBuilder setMargin(int verticalMargin, int horizontalMargin) {
+        this.mVerticalMargin = verticalMargin;
+        this.mHorizontalMargin = horizontalMargin;
         return this;
     }
 
@@ -208,9 +226,9 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
         GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
         // 优先根据预先取得的width/height设置,但不影响跨列/行数
         layoutParams.width = (gridItem.getWidth() > 0 ? gridItem.getWidth() : gridItem.getColumnSpec() * mBaseWidth)
-                + ((gridItem.getColumnSpec() > 1 && gridItem.getWidth() <= 0 ? mMargin * (gridItem.getColumnSpec() - 1) : 0));
+                + ((gridItem.getColumnSpec() > 1 && gridItem.getWidth() <= 0 ? mHorizontalMargin * (gridItem.getColumnSpec() - 1) : 0));
         layoutParams.height = (gridItem.getHeight() > 0 ? gridItem.getHeight() : gridItem.getRowSpec() * mBaseHeight)
-                + ((gridItem.getRowSpec() > 1 && gridItem.getWidth() <= 0 ? mMargin * (gridItem.getRowSpec() - 1) : 0));
+                + ((gridItem.getRowSpec() > 1 && gridItem.getWidth() <= 0 ? mVerticalMargin * (gridItem.getRowSpec() - 1) : 0));
 
         if (gridItem.getWidth() <= 0) {
             gridItem.setWidth(layoutParams.width);
@@ -224,11 +242,11 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
 
         // 设置每个item间距,最外层间距也需要设置(因为需要体现边缘item的scale效果)
         if (gridItem.getRow() > 0) {
-            layoutParams.topMargin = mMargin;
+            layoutParams.topMargin = mVerticalMargin;
         }
 
         if (gridItem.getColumn() > 0) {
-            layoutParams.leftMargin = mMargin;
+            layoutParams.leftMargin = mHorizontalMargin;
         }
 
         itemLayout.setLayoutParams(layoutParams);
@@ -407,7 +425,7 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
 
         GridLayout.LayoutParams layoutParams = new GridLayout.LayoutParams();
         layoutParams.width = mColumnCount * mBaseWidth
-                + ((mColumnCount > 1 ? mMargin * (mColumnCount - 1) : 0));
+                + ((mColumnCount > 1 ? mHorizontalMargin * (mColumnCount - 1) : 0));
         layoutParams.height = mBaseHeight;
         layoutParams.rowSpec = GridLayout.spec(mRowCount - 1, 1);
         layoutParams.columnSpec = GridLayout.spec(0, mColumnCount);
@@ -450,12 +468,7 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
         }
 
         if (hasFocus) {
-
-            if (mScaleWidthSize > mMargin || mScaleHeightSize > mMargin
-                    || (mScaleMultiple > 1 && (gridItem.getWidth() * (mScaleMultiple - 1) > mMargin)
-                    || (gridItem.getHeight() * (mScaleMultiple - 1) > mMargin))) {
-                v.bringToFront();
-            }
+            v.bringToFront();
             mGridLayout.invalidate();
             enlargeItem(v, gridItem);
             refreshReflection(mBaseHeight);
