@@ -43,6 +43,9 @@ public class VerticalBasePositionCalculator implements PositionCalculator {
                     break;
                 }
                 GridItem gridItem = gridItemList.get(index - mStartIndex);
+                if (null == gridItem) {
+                    continue;
+                }
                 gridItem.setColumn(j);
                 gridItem.setRow(i);
             }

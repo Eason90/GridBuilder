@@ -378,6 +378,9 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
 //        this.mGridLayout.setRowCount(mRowCount);
 
         for (GridItem item : mGridItemList) {
+            if (null == item) {
+                continue;
+            }
             addItem(item);
         }
 
