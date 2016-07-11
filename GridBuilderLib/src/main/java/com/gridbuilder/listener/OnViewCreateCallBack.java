@@ -11,6 +11,6 @@ import com.gridbuilder.GridItem;
  */
 public interface OnViewCreateCallBack {
 
-    View onViewCreate(LayoutInflater inflater, GridItem gridItem);
+    View onViewCreate(LayoutInflater inflater, View convertView, GridItem gridItem);
 
 }

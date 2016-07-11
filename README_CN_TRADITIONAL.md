@@ -110,11 +110,18 @@ GridBuilder是將Android原生容器GridLayout進行封裝，只需在指定Grid
             .setOutMargin(50, 50, 50, 50)
             // 設置數據
             .setGridItemList(gridItemList)
+            // 設置View Holder(用於View被remove後的復用)
+            .setViewHolder(holder)
             // 創建Child View
             .setOnCreateViewCallBack(new OnViewCreateCallBack() {
                 @Override
-                public View onViewCreate(LayoutInflater inflater, GridItem gridItem) {
-                    TestGridItemView view // TODO 創建自定義的Child View
+                public View onViewCreate(LayoutInflater inflater, View convertView, GridItem gridItem) {
+                    TestGridItemView view;
+                    if (null == convertView) {
+                        view = new TestGridItemView(mContext);
+                    } else {
+                        view = (TestGridItemView) convertView;
+                    }
                     view.setGridItem(gridItem);
                     return view;
                 }

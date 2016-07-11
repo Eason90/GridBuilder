@@ -114,11 +114,18 @@ Online app screenshot
             .setOutMargin(50, 50, 50, 50)
             // set the data
             .setGridItemList(gridItemList)
+            // set View Holder(for view reuse after views removed from GridLayout)
+            .setViewHolder(holder)
             // implement the interface to create child view
             .setOnCreateViewCallBack(new OnViewCreateCallBack() {
                 @Override
                 public View onViewCreate(LayoutInflater inflater, GridItem gridItem) {
-                    TestGridItemView view // TODO create custom view
+                    TestGridItemView view;
+                    if (null == convertView) {
+                        view = new TestGridItemView(mContext);
+                    } else {
+                        view = (TestGridItemView) convertView;
+                    }
                     view.setGridItem(gridItem);
                     return view;
                 }

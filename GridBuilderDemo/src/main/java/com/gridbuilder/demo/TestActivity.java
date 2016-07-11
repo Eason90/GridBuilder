@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.gridbuilder.GridBuilder;
 import com.gridbuilder.GridItem;
+import com.gridbuilder.GridViewHolder;
 import com.gridbuilder.calculator.HorizontalPositionCalculator;
 import com.gridbuilder.listener.OnViewCreateCallBack;
 
@@ -47,6 +48,8 @@ public class TestActivity extends Activity {
             gridItemList.add(gridItem);
         }
 
+        GridViewHolder holder = new GridViewHolder(mGridLayout);
+
         GridBuilder.newInstance(this, mGridLayout)
                 .setScaleSize(10, 10)
                 .setScaleAnimationDuration(200)
@@ -55,10 +58,16 @@ public class TestActivity extends Activity {
                 .setMargin(10)
                 .setOutMargin(50, 50, 50, 50)
                 .setGridItemList(gridItemList)
+                .setViewHolder(holder)
                 .setOnCreateViewCallBack(new OnViewCreateCallBack() {
                     @Override
-                    public View onViewCreate(LayoutInflater inflater, GridItem gridItem) {
-                        TestGridItemView view = new TestGridItemView(TestActivity.this);
+                    public View onViewCreate(LayoutInflater inflater, View convertView, GridItem gridItem) {
+                        TestGridItemView view;
+                        if (null == convertView) {
+                            view = new TestGridItemView(TestActivity.this);
+                        } else {
+                            view = (TestGridItemView) convertView;
+                        }
                         view.setBackgroundColor(Color.parseColor(getBackgroundColor()));
                         view.setFocusable(true);
                         view.setGridItem(gridItem);
@@ -67,7 +76,6 @@ public class TestActivity extends Activity {
                 })
                 .build();
     }
-
 
     private String getBackgroundColor() {
         Random random = new Random();

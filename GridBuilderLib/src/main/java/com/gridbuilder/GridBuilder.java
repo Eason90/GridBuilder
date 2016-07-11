@@ -134,6 +134,8 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
 
     private OnViewCreateCallBack mOnViewCreateCallBack;
 
+    private GridViewHolder mGridViewHolder;
+
     private GridBuilder(Context context, GridLayout gridLayout) {
         this.mContext = context;
         this.mGridLayout = gridLayout;
@@ -216,7 +218,8 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
     private GridBuilder addItem(GridItem gridItem) {
         View itemLayout = null;
         if (null != mOnViewCreateCallBack) {
-            itemLayout = mOnViewCreateCallBack.onViewCreate(mLayoutInflater, gridItem);
+            itemLayout = mOnViewCreateCallBack.onViewCreate(mLayoutInflater, null == mGridViewHolder
+                    ? null : mGridViewHolder.getConvertView(), gridItem);
         }
 
         if (null == itemLayout) {
@@ -513,6 +516,16 @@ public class GridBuilder implements View.OnFocusChangeListener, View.OnClickList
 
     public GridBuilder setOnKeyListener(View.OnKeyListener l) {
         this.mOnKeyListener = l;
+        return this;
+    }
+
+    /**
+     * 设置ViewHolder
+     *
+     * @param holder GridViewHolder
+     */
+    public GridBuilder setViewHolder(GridViewHolder holder) {
+        this.mGridViewHolder = holder;
         return this;
     }
 
