@@ -10,13 +10,13 @@ No data DEMO screenshot
 ![](screenshots/GridBuilder_2.jpg)
 Online app screenshot
 
-##Module:
+## Module:
 
  **GridBuilderLib**: GridBuilder Library
  
  **GridBuilderDemo**: Application Demo
 
-##Library Structure:
+## Library Structure:
 
   **/calculator**: The calculator of layout
   
@@ -30,14 +30,14 @@ Online app screenshot
   
   **IGridItemView**: The child view of GridLayout should implement this interface
 
-##Feature:
+## Feature:
 
  1. Support Android non-touch devices(Box, TV), support child view focused animation
  2. Support custom child view position calculator(provided horizontal layout calculator)
  3. Support vertical and horizontal stretch(need to nested ScrollView or HorizontalScrollView out of GridLayout)
  4. Support for dynamic reflection
     
-##Instructions:
+## Instructions:
 
 1.Placed the GridLayout in layout.xml
 
@@ -133,13 +133,13 @@ Online app screenshot
             .build();
 
 
-##To be improved:
+## To be improved:
 
 1. Dynamic focus style
 2. Recycling / child view reuse
 3. Friendly adapter design pattern
 
-##Support：
+## Support：
 Please feel free to [report bugs](https://github.com/Eason90/GridBuilder/issues) or ask for help via email.
 
 Email: easonx1990@gmail.com

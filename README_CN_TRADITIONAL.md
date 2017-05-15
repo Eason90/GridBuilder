@@ -6,13 +6,13 @@ GridBuilder是將Android原生容器GridLayout進行封裝，只需在指定Grid
 ![](screenshots/GridBuilder_2.jpg)
 商用截圖
 
-##Module：
+## Module：
 
  **GridBuilderLib**：GridBuilder Library
 
  **GridBuilderDemo**：應用Demo
 
-##Lib結構：
+## Lib結構：
 
   **/calculator**：動態布局計算器
 
@@ -26,14 +26,14 @@ GridBuilder是將Android原生容器GridLayout進行封裝，只需在指定Grid
 
   **IGridItemView**：GridLayout中的Child View必須實現其接口
 
-##特點：
+## 特點：
 
  1. 全面支持Android非觸屏端(盒子、TV)，支持焦點放大動效
  2. 支持自定義布局算法(默認自帶橫向布局Calculator)
  3. 支持橫縱向延伸(需在GridLayout外套ScrollView/HorizontalScrollView)
  4. 支持動態倒影
 
-##使用方法：
+## 使用方法：
 
 1.在layout.xml中放置GridLayout
 
@@ -129,13 +129,13 @@ GridBuilder是將Android原生容器GridLayout進行封裝，只需在指定Grid
             .build();
 
 
-##待完善：
+## 待完善：
 
 1. 動態焦點樣式
 2. 資源回收/childView復用
 3. 更友好的adapter模式
 
-##支持：
+## 支持：
 任何問題可以在項目中[提交bug報告](https://github.com/Eason90/GridBuilder/issues)，也可以發送郵件以尋求幫助。
 
 Email: easonx1990@gmail.com
